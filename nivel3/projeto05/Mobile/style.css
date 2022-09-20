@@ -1,0 +1,205 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ff-texting: 'Palanquin', sans-serif;
+  --ff-heading: 'Staatliches', sans-serif;
+
+
+  --bg-primary: #EFF1FF;
+  --bg-secondary:#8E9AAF;
+  --bg-secondary2:#CBC0D3;
+  --bg-secondary3:#FEEAFA;
+  --fc-primary: #23053A;
+  --fc-secondary: #4A4E69;
+  
+  font-size: 62.5%;
+  --fs-body: 2.0rem;
+  --fs-heading: 4.0rem;
+}
+
+body {
+  font-family: var(--ff-texting);
+
+  font-size: var(--fs-body);
+
+  text-align: center;
+
+  background-color: var(--bg-primary);
+
+  color: var(--fc-primary);
+
+  padding-bottom: 3.2rem;
+
+}
+
+.page {
+  max-width: 38.4rem;
+  margin: 0 auto;
+
+}
+
+
+header {
+  font-family: var(--ff-heading);
+  text-align: center;
+
+  background-color: var(--bg-secondary);
+  
+  color: #FFFFFF;
+
+  padding-bottom: 3.6rem;
+
+}
+
+header img {
+  margin: 3.2rem auto 3.2rem;
+  
+  
+}
+
+header h1 {
+  background-color: var(--bg-secondary2);
+  padding: 8px auto 8px ;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+
+  font-size: var(--fs-heading);
+
+  font-weight: 400;
+  
+}
+
+main {
+  display: grid;
+  gap: 3.2rem;
+}
+
+main p {
+  margin-top: 1.4rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+
+
+}
+
+.card img {
+
+  object-fit: cover;
+  border-radius: 2.0rem;
+  width: 100%;
+  height: auto;
+
+  transition: all 200ms;
+}
+
+.card img:hover{
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.card {
+  position: relative;
+}
+
+.card h2 {
+  
+  font-family: var(--ff-heading);
+  font-size: var(--fs-body);
+  color: var(--fc-secondary);
+
+  position:absolute;
+  bottom: 19.9rem;
+  left: 19.2rem;
+  right: 1.6rem;
+  top: 1.6rem;
+}
+
+.card span {
+  background-color: var(--bg-secondary3);
+
+  border-radius: 2.0rem;
+
+  padding: 0 2.4rem;
+
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  line-height: 3.4rem;
+
+  left: 22.4rem;
+  width: fit-content;
+  height: 3.5rem;
+
+  display: inline-flex;
+  align-items: center;
+
+}
+
+header  {
+  animation: topdow 700ms backwards;
+  
+}
+
+main {
+animation: downtop 700ms 350ms backwards;
+}
+
+span {
+  animation: button 700ms 350ms backwards;
+}
+
+
+@keyframes topdow {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+@keyframes downtop {
+  0%{
+    opacity: 0;
+    transform: translateY(20px);
+
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes button {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
