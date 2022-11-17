@@ -1,0 +1,84 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  font-size: 62.5%;
+}
+
+body{
+  font-family: 'Roboto', sans-serif;
+
+  background: white;
+  color: #323238;
+
+  min-height: 100vh;
+
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  
+}
+
+#conteiner {
+  margin-top: 25.4rem;
+}
+
+span {
+  font-size: 9.6rem;
+  line-height: 14.8rem;
+  text-transform: uppercase;
+}
+
+#controls {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 3.2rem;
+  
+}
+
+#timer{
+  width: 32.1rem;
+  height: 11.7rem;
+  text-align: center;
+  line-height: 14.8rem;
+}
+
+button{
+  background-color: transparent;
+  border:none;
+  cursor: pointer;
+}
+
+
+section button {
+  border-radius: 2.4rem;
+  margin: 0 auto 3.2rem;
+  
+}
+
+section{
+  margin: 19.6rem 0 0 19.2rem;
+}
+
+
+.forest, .coffeeshop{
+  margin-right: 3.2rem;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
