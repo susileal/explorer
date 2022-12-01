@@ -10,7 +10,7 @@
   --bg-color: #ffffff;
   --primary-color: #323238;
   --primary-bt:#323238;
-  --primary-bt1: blue;
+  --primary-bt1: #02799D;
 }
 
 body{
@@ -59,7 +59,7 @@ main {
   height: calc(8rem, 2rem + 10vw, 33.6rem);
 }
 
-.pause svg path, .stop svg path {
+.pause svg path, .stop svg path  {
   fill: var(--primary-bt1);
 }
 
@@ -91,11 +91,30 @@ section{
 }
 
 
-.forest, .coffeeshop{
+.forest, .forest2, .coffeeshop, .coffeeshop2 {
   margin-right: 3.2rem;
   
 }
 
+.forest svg path:hover {
+  fill: #c0c0c2;
+}
+
+.rain svg path:hover {
+  fill: #c0c0c2;
+}
+
+.rain2 svg path:hover {
+  fill: #c0c0c2;
+}
+
+.coffeeshop svg path:hover {
+  fill: #c0c0c2;
+}
+
+.fireplace svg path:hover {
+  fill: #c0c0c2;
+}
 
 
 
