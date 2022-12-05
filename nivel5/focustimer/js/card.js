@@ -1,3 +1,5 @@
+
+
 export default function Card ({
   buttonForest,
   buttonForest2,
@@ -12,12 +14,13 @@ export default function Card ({
   function forest (){
     buttonForest.classList.add('hide')
     buttonForest2.classList.remove('hide')
-    buttonRain.classList.add('hide')
-    buttonRain2.classList.remove('hide')
+    buttonRain2.classList.add('hide')
+    buttonRain.classList.remove('hide')
     buttonCoffeeshop.classList.remove('hide')
     buttonCoffeeshop2.classList.add('hide')
     buttonFireplace.classList.remove('hide')
     buttonFireplace2.classList.add('hide')
+
   }
 
   function forest2 (){
@@ -25,15 +28,15 @@ export default function Card ({
     buttonForest2.classList.add('hide')
   }
 
-  function rain() {
+  function rain2() {
     buttonRain.classList.add('hide')
     buttonRain2.classList.remove('hide')
     
   }
 
-  function rain2() {
-    buttonRain.classList.remove('hide')
-    buttonRain2.classList.add('hide')
+  function rain() {
+    buttonRain2.classList.remove('hide')
+    buttonRain.classList.add('hide')
     buttonForest.classList.remove('hide')
     buttonForest2.classList.add('hide')
     buttonCoffeeshop.classList.remove('hide')
@@ -47,8 +50,8 @@ export default function Card ({
     buttonCoffeeshop2.classList.remove('hide')
     buttonForest.classList.remove('hide')
     buttonForest2.classList.add('hide')
-    buttonRain.classList.add('hide')
-    buttonRain2.classList.remove('hide')
+    buttonRain2.classList.add('hide')
+    buttonRain.classList.remove('hide')
     buttonFireplace.classList.remove('hide')
     buttonFireplace2.classList.add('hide')
     
@@ -65,8 +68,8 @@ export default function Card ({
     buttonFireplace2.classList.remove('hide')
     buttonForest.classList.remove('hide')
     buttonForest2.classList.add('hide')
-    buttonRain.classList.add('hide')
-    buttonRain2.classList.remove('hide')
+    buttonRain2.classList.add('hide')
+    buttonRain.classList.remove('hide')
     buttonCoffeeshop.classList.remove('hide')
     buttonCoffeeshop2.classList.add('hide')
 

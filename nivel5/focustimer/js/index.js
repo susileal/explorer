@@ -8,24 +8,26 @@ import Timer from "./timer.js"
 
 import Card from "./card.js"
 
+import Sound from "./sounds.js"
 
-const buttonPlay = document.querySelector('.play')
-const buttonPause = document.querySelector('.pause')
-const buttonStop = document.querySelector('.stop')
-const buttonSet = document.querySelector('.set')
-const buttonIncrease = document.querySelector('.increase')
-const buttonDecrease = document.querySelector('.decrease')
-const buttonForest = document.querySelector('.forest')
-const buttonForest2 = document.querySelector('.forest2')
-const buttonRain = document.querySelector('.rain')
-const buttonRain2 = document.querySelector('.rain2')
-const buttonCoffeeshop = document.querySelector('.coffeeshop')
-const buttonCoffeeshop2 = document.querySelector('.coffeeshop2')
-const buttonFireplace = document.querySelector('.fireplace')
-const buttonFireplace2 = document.querySelector('.fireplace2')
-
-const minutesDisplay = document.querySelector('.minutes')
-const secondsDisplay = document.querySelector('.seconds')
+import {
+  buttonPlay,
+  buttonPause,
+  buttonStop,
+  buttonSet,
+  buttonIncrease,
+  buttonDecrease,
+  buttonForest,
+  buttonForest2,
+  buttonRain,
+  buttonRain2,
+  buttonCoffeeshop,
+  buttonCoffeeshop2,
+  buttonFireplace,
+  buttonFireplace2,
+  minutesDisplay,
+  secondsDisplay
+} from "./elements.js"
 
 
 // é necessário passar as dependências para a "fábrica"
@@ -36,11 +38,12 @@ const controls = Controls ({
   buttonStop
 })
 
-const timer = Timer({
+const timer = Timer ({
   minutesDisplay,
   secondsDisplay,
   resetControls: controls.reset,
 })
+
 
 const card = Card ({
   buttonForest,
@@ -53,33 +56,41 @@ const card = Card ({
   buttonFireplace2
 }) 
 
+const sound = Sound ()
+
+
 buttonPlay.addEventListener('click', function() {
   controls.play()
   timer.countdown()
-  
+  sound.pressButton()
 })
 
 buttonPause.addEventListener('click', function(){
   controls.pause()
   timer.hold()
+  sound.pressButton()
 
 })
 
 buttonStop.addEventListener('click', function() {
   controls.reset()
   timer.reset()
+  sound.pressButton()
 })
 
 buttonSet.addEventListener('click', function() {
   controls.set()
+  sound.pressButton()
 })
 
 buttonIncrease.addEventListener('click', function() {
  timer.increase()
+ sound.pressButton()
 })
 
 buttonDecrease.addEventListener('click', function() {
   timer.decrease()
+  sound.pressButton()
 })
 
 buttonSet.addEventListener('click', function() {
@@ -95,34 +106,52 @@ buttonSet.addEventListener('click', function() {
 
 buttonForest.addEventListener('click', function() {
   card.forest()
+  sound.buttonAudioForest.play()
+  sound.buttonAudioRain.pause()
+  sound.buttonAudioCoffeeshop.pause()
+  sound.buttonAudioFireplace.pause()
 })
 
 buttonForest2.addEventListener('click', function() {
   card.forest2()
+  sound.buttonAudioForest.pause()
 })
 
 buttonRain.addEventListener('click', function() {
   card.rain()
+  sound.buttonAudioRain.play()
+  sound.buttonAudioForest.pause()
+  sound.buttonAudioCoffeeshop.pause()
+  sound.buttonAudioFireplace.pause()
 })
 
-buttonRain2.addEventListener('click', function() {
-  card.rain2()
-})
+
 
 buttonCoffeeshop.addEventListener('click', function() {
   card.coffeeshop()
+  sound.buttonAudioCoffeeshop.play()
+  sound.buttonAudioForest.pause()
+  sound.buttonAudioRain.pause()
+  sound.buttonAudioFireplace.pause()
 })
 
 buttonCoffeeshop2.addEventListener('click', function() {
   card.coffeeshop2()
+  sound.buttonAudioCoffeeshop.pause()
 })
 
 buttonFireplace.addEventListener('click', function() {
   card.fireplace()
+  sound.buttonAudioFireplace.play()
+  sound.buttonAudioForest.pause()
+  sound.buttonAudioRain.pause()
+  sound.buttonAudioCoffeeshop.pause()
+  
 })
 
 buttonFireplace2.addEventListener('click', function() {
   card.fireplace2()
+  sound.buttonAudioFireplace.pause()
 })
 
 
