@@ -1,0 +1,172 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  font-size: 62.5%;
+
+  --bg-color: #ffffff;
+  --primary-color: #323238;
+  --primary-bt:#323238;
+  --primary-bt1: #02799D;
+}
+
+body{
+  font-family: 'Roboto', sans-serif;
+
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+
+  display: grid;
+  min-height: 100vh;
+
+}
+
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+#conteiner {
+  margin-top: 25.4rem; 
+}
+
+#timer{
+  font-size: clamp(6.3rem, 4rem + 10vw, 12.6rem) ;
+  line-height: 14.8rem;
+  justify-content: center;
+  display: flex; /* tira os espaços do span*/
+}
+
+.hide {
+  display: none;
+}
+
+#controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  margin-top: 3.2rem;
+  
+}
+
+
+#controls #card{
+  width: clamp(10rem, 10rem + 30vw, 82.1rem); /* mínimo, ideal e máximo*/
+  height: calc(8rem, 2rem + 10vw, 33.6rem);
+}
+
+.pause svg path, .stop svg path  {
+  fill: var(--primary-bt1);
+}
+
+.lightmode .play svg path, 
+.lightmode .set svg path,
+.lightmode .increase svg path,
+.lightmode .decrease svg path
+ {
+   fill: var(--primary-bt);
+   width: clamp(2.4rem, 2rem + 12vw, 4.8rem);
+}
+
+
+button{
+  background-color: transparent;
+  border:none;
+  cursor: pointer;
+}
+
+input {
+  position:absolute;
+  width: 9.0rem;
+  height: 1.6rem;
+  display: flex;
+  justify-content:center;
+
+}
+
+button {
+  position:relative;
+}
+
+section button {
+  border-radius: 2.4rem;
+  margin: 0 auto 3.2rem;
+  width: clamp(6rem, 2rem + 12vw, 13.8rem);
+}
+
+section{
+  margin: 19.6rem 0 0 19.2rem;
+}
+
+
+.forest, .forest2, .coffeeshop, .coffeeshop2 {
+  margin-right: 3.2rem;
+  
+}
+
+.forest svg path:hover {
+  fill: #c0c0c2;
+}
+
+.rain svg path:hover {
+  fill: #c0c0c2;
+}
+
+.rain2 svg path:hover {
+  fill: #c0c0c2;
+}
+
+.coffeeshop svg path:hover {
+  fill: #c0c0c2;
+}
+
+.fireplace svg path:hover {
+  fill: #c0c0c2;
+}
+
+.sun, .moon{
+  position: fixed;
+  top: 6.0rem;
+  right: 6.0rem;
+}
+
+.darkmode{
+  background-color: rgba(18, 18, 20, 1) ; 
+}
+
+.darkmode #timer {
+  color: white;
+}
+
+.darkmode .play svg path, 
+.darkmode .set svg path,
+.darkmode .increase svg path,
+.darkmode .decrease svg path
+ {
+   fill: #C4C4CC;
+   width: clamp(2.4rem, 2rem + 12vw, 4.8rem);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
