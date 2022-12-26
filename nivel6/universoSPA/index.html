@@ -18,9 +18,7 @@
 <body>
 
   <img src="/image/home.svg" alt="">
-
   <div class="page">
-
     <nav>
       <a href="#">
         <img class="vetor" src="/image/Vector.svg" alt="">
@@ -40,10 +38,12 @@
          <a href="/404" onclick="route()">404</a>
        </li>
      </ul>
-   </nav>
+    </nav>
+    <div id="app"></div>
+
+
   </div>
 
-  <div id="app"></div>
 
   <script>
 
@@ -76,10 +76,26 @@
     // handle - significa manipule
     // location - 
     function handle() {
-      const pathname = window.location.pathname
+      const { pathname } = window.location
+      const route = routes[pathname] || routes[404]
 
-      console.log(pathname)
-        }
+     // retorna uma promessa, é assíncrono vai ser lido, mas só será executado depois.
+     // fetch - vai buscar, then - então(quando concluir) vou executar uma função
+     // data - dados, vai ser retornado um dado na função
+     // data.text() - transforma os dados em texto
+     // (data => data.text()) - isso tudo é uma função
+     //  .then(html => console.log(html)) - pega o conteúdo de outra página html
+     // innerHTML - html interno do elemento app
+     fetch(route)
+     .then(data => data.text())
+     .then(html => {
+      document.querySelector('#app').innerHTML = html
+     })
+    }
+
+    handle()
+
+    window.onpopstate = () => handle()
   </script>
   
    
