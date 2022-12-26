@@ -45,57 +45,8 @@
   </div>
 
 
-  <script>
+  <script src="js/index.js" type="module">
 
-    // mapeamento da rota
-    // não pode ser criado uma propriedade com barra, por isso que ""
-
-    const routes = {
-      "/": "/pages/home.html",
-      "/universe": "/pages/universe.html",
-      "/exploration": "/pages/exploration.html",
-      404: "/pages/404.html",
-    }
-
-    // para acessar o valor da constante:
-
-    console.log(routes["/"])
-    
-    function route (event) {
-      event = event || window.event 
-      event.preventDefault()
-      
-      // mudar o histórico ao clicar no link
-      // pushState (puxe/estado) - a primeira parte é: o tipo de dado que se quer adcionar
-      // target - quem disparou o evento
-      window.history.pushState({}, "", event.target.href)
-
-      handle()
-    }
-
-    // handle - significa manipule
-    // location - 
-    function handle() {
-      const { pathname } = window.location
-      const route = routes[pathname] || routes[404]
-
-     // retorna uma promessa, é assíncrono vai ser lido, mas só será executado depois.
-     // fetch - vai buscar, then - então(quando concluir) vou executar uma função
-     // data - dados, vai ser retornado um dado na função
-     // data.text() - transforma os dados em texto
-     // (data => data.text()) - isso tudo é uma função
-     //  .then(html => console.log(html)) - pega o conteúdo de outra página html
-     // innerHTML - html interno do elemento app
-     fetch(route)
-     .then(data => data.text())
-     .then(html => {
-      document.querySelector('#app').innerHTML = html
-     })
-    }
-
-    handle()
-
-    window.onpopstate = () => handle()
   </script>
   
    
