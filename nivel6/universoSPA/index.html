@@ -22,13 +22,12 @@
   <div class="page">
 
     <nav>
-      <a href="/" onclick="route()">
-
+      <a href="#">
         <img class="vetor" src="/image/Vector.svg" alt="">
       </a>
       <ul>
        <li> 
-         <a href="/home" onclick="route()">Home</a>
+         <a href="/" onclick="route()">Home</a>
        </li>
 
        <li>
@@ -47,12 +46,40 @@
   <div id="app"></div>
 
   <script>
-    // route significa rotear
-    // ao chamar no link não é necessário chamar o argumento, pois já foi passodo pelo parâmetro - event
-    function route (event) {
-      event = event || window.event // window - tem todas as propriedades do navegador
-      event.preventDefault() // preventDefault() - faz com que perca o padrão e no caso do projeto é redirecionar para outra página
+
+    // mapeamento da rota
+    // não pode ser criado uma propriedade com barra, por isso que ""
+
+    const routes = {
+      "/": "/pages/home.html",
+      "/universe": "/pages/universe.html",
+      "/exploration": "/pages/exploration.html",
+      404: "/pages/404.html",
     }
+
+    // para acessar o valor da constante:
+
+    console.log(routes["/"])
+    
+    function route (event) {
+      event = event || window.event 
+      event.preventDefault()
+      
+      // mudar o histórico ao clicar no link
+      // pushState (puxe/estado) - a primeira parte é: o tipo de dado que se quer adcionar
+      // target - quem disparou o evento
+      window.history.pushState({}, "", event.target.href)
+
+      handle()
+    }
+
+    // handle - significa manipule
+    // location - 
+    function handle() {
+      const pathname = window.location.pathname
+
+      console.log(pathname)
+        }
   </script>
   
    
