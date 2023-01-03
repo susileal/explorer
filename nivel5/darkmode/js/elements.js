@@ -15,6 +15,8 @@ const buttonFireplace2 = document.querySelector('.fireplace2')
 const buttonSun = document.querySelector('.sun')
 const buttonMoon = document.querySelector('.moon')
 
+
+
 const mainPage = document.querySelector('main')
 
 
@@ -41,5 +43,6 @@ export {
   mainPage,
   minutesDisplay,
   secondsDisplay,
+ 
 
 }

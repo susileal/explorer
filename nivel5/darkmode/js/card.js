@@ -20,6 +20,7 @@ export default function Card ({
     buttonCoffeeshop2.classList.add('hide')
     buttonFireplace.classList.remove('hide')
     buttonFireplace2.classList.add('hide')
+   
 
   }
 
@@ -28,22 +29,26 @@ export default function Card ({
     buttonForest2.classList.add('hide')
   }
 
-  function rain2() {
-    buttonRain.classList.add('hide')
-    buttonRain2.classList.remove('hide')
-    
-  }
-
   function rain() {
-    buttonRain2.classList.remove('hide')
     buttonRain.classList.add('hide')
+    buttonRain2.classList.remove('hide')
     buttonForest.classList.remove('hide')
     buttonForest2.classList.add('hide')
     buttonCoffeeshop.classList.remove('hide')
     buttonCoffeeshop2.classList.add('hide')
     buttonFireplace.classList.remove('hide')
     buttonFireplace2.classList.add('hide')
+    console.log("flor")
   }
+
+
+  function rain2() {
+    buttonRain.classList.remove('hide')
+    buttonRain2.classList.add('hide')
+    console.log("teste")
+  }
+
+  
   
   function coffeeshop() {
     buttonCoffeeshop.classList.add('hide')
@@ -54,12 +59,14 @@ export default function Card ({
     buttonRain.classList.remove('hide')
     buttonFireplace.classList.remove('hide')
     buttonFireplace2.classList.add('hide')
+
     
   }
 
   function coffeeshop2() {
     buttonCoffeeshop.classList.remove('hide')
     buttonCoffeeshop2.classList.add('hide')
+
    
   }
 
@@ -72,6 +79,8 @@ export default function Card ({
     buttonRain.classList.remove('hide')
     buttonCoffeeshop.classList.remove('hide')
     buttonCoffeeshop2.classList.add('hide')
+
+    console.log("teste")
 
   }
 

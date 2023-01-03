@@ -80,18 +80,6 @@ button{
   cursor: pointer;
 }
 
-input {
-  position:absolute;
-  width: 9.0rem;
-  height: 1.6rem;
-  display: flex;
-  justify-content:center;
-
-}
-
-button {
-  position:relative;
-}
 
 section button {
   border-radius: 2.4rem;
@@ -103,6 +91,73 @@ section{
   margin: 19.6rem 0 0 19.2rem;
 }
 
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 9.0rem;
+  height: .6rem;
+  background: #323238;
+  border-radius: .5rem;
+  margin-top: 3.2rem;
+}   
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  background: #323238;
+}
+
+.inputRange2 input[type="range"] {
+  width: 9.0rem;
+  height: .6rem;
+  background: white;
+  border-radius: .5rem;
+  margin-top: 3.2rem;
+}  
+
+.inputRange2 input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  background: white;
+}
+
+.card button{
+  position: absolute;
+ 
+}
+
+input{
+  position: absolute;
+}
+
+.forestInput{
+  display: inline;
+  left: 81.5rem;
+  top: 28.5rem;
+
+}
+
+.rainInput{
+  display: inline;
+  left: 98.5rem;
+  top: 28.5rem;
+}
+
+.coffeeshopInput{
+  display: inline;
+  left: 81.5rem;
+  top: 47.2rem;
+}
+
+.fireplaceInput{
+  display: inline;
+  left: 98.5rem;
+  top: 47.2rem;
+  
+}
 
 .forest, .forest2, .coffeeshop, .coffeeshop2 {
   margin-right: 3.2rem;
@@ -114,10 +169,6 @@ section{
 }
 
 .rain svg path:hover {
-  fill: #c0c0c2;
-}
-
-.rain2 svg path:hover {
   fill: #c0c0c2;
 }
 
@@ -135,6 +186,8 @@ section{
   right: 6.0rem;
 }
 
+/* darkmode */ 
+
 .darkmode{
   background-color: rgba(18, 18, 20, 1) ; 
 }
@@ -151,6 +204,67 @@ section{
    fill: #C4C4CC;
    width: clamp(2.4rem, 2rem + 12vw, 4.8rem);
 }
+
+.darkmode .forest svg path, 
+.darkmode .rain svg path,
+.darkmode .coffeeshop svg path,
+.darkmode .fireplace svg path
+ {
+   fill: #29292E;;
+   width: clamp(2.4rem, 2rem + 12vw, 4.8rem);
+}
+
+.darkmode .forest svg path:nth-child(2), 
+.darkmode .rain svg path:nth-child(2),
+.darkmode .coffeeshop svg path:nth-child(2),
+.darkmode .fireplace svg path:nth-child(2)
+ {
+   fill: #C4C4CC;
+   width: clamp(2.4rem, 2rem + 12vw, 4.8rem);
+}
+
+.darkmode .forest2 svg path:nth-child(1), 
+.darkmode .rain2 svg path:nth-child(1),
+.darkmode .coffeeshop2 svg path:nth-child(1),
+.darkmode .fireplace2 svg path:nth-child(1)
+ {
+   fill: #0A3442;
+   width: clamp(2.4rem, 2rem + 12vw, 4.8rem);
+}
+
+.darkmode input[type="range"] {
+  width: 9.0rem;
+  height: .6rem;
+  background: #C4C4CC;
+  border-radius: .5rem;
+  margin-top: 3.2rem;
+}  
+
+.darkmode input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  background: #C4C4CC;
+}
+
+.darkmode .inputRange2  input[type="range"] {
+  width: 9.0rem;
+  height: .6rem;
+  background: white;
+  border-radius: .5rem;
+  margin-top: 3.2rem;
+}  
+
+.darkmode .inputRange2  input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 50%;
+  background: white;
+}
+
+
 
 
 
