@@ -18,16 +18,13 @@ import {
   buttonIncrease,
   buttonDecrease,
   buttonForest,
-  buttonForest2,
   buttonRain,
-  buttonRain2,
   buttonCoffeeshop,
-  buttonCoffeeshop2,
   buttonFireplace,
-  buttonFireplace2,
   buttonSun,
   buttonMoon,
   mainPage,
+  inputVolume,
   minutesDisplay,
   secondsDisplay
 } from "./elements.js"
@@ -49,13 +46,10 @@ const timer = Timer ({
 
 const card = Card ({
   buttonForest,
-  buttonForest2,
   buttonRain,
-  buttonRain2,
   buttonCoffeeshop,
-  buttonCoffeeshop2,
   buttonFireplace,
-  buttonFireplace2
+  inputVolume
 }) 
 
 const sound = Sound ()
@@ -108,51 +102,20 @@ buttonSet.addEventListener('click', function() {
 
 buttonForest.addEventListener('click', function() {
   card.forest()
-  sound.buttonAudioForest.play()
-  sound.buttonAudioRain.pause()
-  sound.buttonAudioCoffeeshop.pause()
-  sound.buttonAudioFireplace.pause()
-})
-
-buttonForest2.addEventListener('click', function() {
-  card.forest2()
-  sound.buttonAudioForest.pause()
 })
 
 buttonRain.addEventListener('click', function() {
   card.rain()
-  sound.buttonAudioRain.play()
-  sound.buttonAudioForest.pause()
-  sound.buttonAudioCoffeeshop.pause()
-  sound.buttonAudioFireplace.pause()
 })
 
 buttonCoffeeshop.addEventListener('click', function() {
   card.coffeeshop()
-  sound.buttonAudioCoffeeshop.play()
-  sound.buttonAudioForest.pause()
-  sound.buttonAudioRain.pause()
-  sound.buttonAudioFireplace.pause()
-})
-
-buttonCoffeeshop2.addEventListener('click', function() {
-  card.coffeeshop2()
-  sound.buttonAudioCoffeeshop.pause()
 })
 
 buttonFireplace.addEventListener('click', function() {
-  card.fireplace()
-  sound.buttonAudioFireplace.play()
-  sound.buttonAudioForest.pause()
-  sound.buttonAudioRain.pause()
-  sound.buttonAudioCoffeeshop.pause()
-  
+  card.fireplace()  
 })
 
-buttonFireplace2.addEventListener('click', function() {
-  card.fireplace2()
-  sound.buttonAudioFireplace.pause()
-})
 
 buttonSun.addEventListener('click', function() {
   mainPage.classList.add('darkmode')
@@ -167,6 +130,8 @@ buttonMoon.addEventListener('click', function() {
   buttonSun.classList.remove('hide')
   buttonMoon.classList.add('hide')
 })
+
+
 
 
 
