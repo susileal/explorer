@@ -10,12 +10,15 @@ const buttonRain = document.querySelector('.rain')
 const buttonCoffeeshop = document.querySelector('.coffeeshop')
 const buttonFireplace = document.querySelector('.fireplace')
 
+const volForest = document.querySelector("#volForest");
+const volRain = document.querySelector("#volRain");
+const volCoffeeShop = document.querySelector("#volCoffeeShop");
+const volFirePlace = document.querySelector("#volFirePlace");
+
 const buttonSun = document.querySelector('.sun')
 const buttonMoon = document.querySelector('.moon')
 
 const mainPage = document.querySelector('main')
-
-const inputVolume = document.querySelector('input')
 
 const minutesDisplay = document.querySelector('.minutes')
 const secondsDisplay = document.querySelector('.seconds')
@@ -31,13 +34,15 @@ export {
   buttonRain,
   buttonCoffeeshop,
   buttonFireplace,
+  volForest,
+  volRain,
+  volCoffeeShop,
+  volFirePlace,
   buttonSun,
   buttonMoon,
   mainPage,
-  inputVolume,
   minutesDisplay,
   secondsDisplay,
 
- 
 
 }

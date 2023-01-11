@@ -21,20 +21,21 @@ body{
   background-color: var(--bg-color);
   color: var(--primary-color);
 
-  
+  min-height: 100vh;
   display: grid;
-  height: 100vh;
   
 }
+
 
 main {
   display: flex;
   justify-content: center;
+  align-items: center;
+  gap: 10vw;
+  flex-wrap: wrap;
 }
 
-#conteiner {
-  margin-top: 25.4rem; 
-}
+
 
 #timer{
   font-size: clamp(6.3rem, 4rem + 10vw, 12.6rem) ;
@@ -52,15 +53,15 @@ main {
   justify-content: center;
   align-items: center;
   gap: 4rem;
-  margin-top: 3.2rem;
-  
 }
 
 
-#controls .card{
+#controls .card-wrapper{
   width: clamp(10rem, 10rem + 30vw, 82.1rem); /* mínimo, ideal e máximo*/
   height: calc(8rem, 2rem + 10vw, 33.6rem);
 }
+
+
 
 .pause svg path, .stop svg path  {
   fill: var(--primary-bt1);
@@ -83,23 +84,13 @@ button{
 }
 
 
-section button {
-  border-radius: 2.4rem;
-  width: clamp(6rem, 2rem + 12vw, 13.8rem);
-}
-
-section{
-  margin: 19.6rem 0 0 19.2rem;
-}
-
 #card-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3.2rem;
-  
+
+  border-radius: 2.4rem;
 }
-
-
 
 .card{
   position: relative;
@@ -107,46 +98,45 @@ section{
 
 .card input{
   position: absolute;
-  bottom: 7.0rem;
-  left: 2.4rem;
+  left: 2.5rem;
+  bottom: 2rem;
+  width: 10rem;
 }
 
-input[type="range"] {
+
+.lightmode input[type="range"],
+.lightmode input[type="range"]::-webkit-slider-runnable-track {
   -webkit-appearance: none;
   width: 9.0rem;
   height: .6rem;
+  cursor: pointer;
   background: #323238;
   border-radius: .5rem;
  
 }   
 
-input[type="range"]::-webkit-slider-thumb {
+.lightmode input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 1.6rem;
   width: 1.6rem;
+  margin-top: -0.6rem;
   border-radius: 50%;
   background: #323238;
 }
 
-.lightmode .active input[type="range"] {
-  -webkit-appearance: none;
-  width: 9.0rem;
-  height: .6rem;
-  background: white;
-  border-radius: .5rem;
+.lightmode .activeInput,
+.lightmode .activeInput::-webkit-slider-runnable-track {
+  background: white !important; 
  
+}   
+
+.lightmode .activeInput::-webkit-slider-thumb {
+  background: white !important;
 }
 
-.lightmode .active input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 1.6rem;
-  width: 1.6rem;
-  border-radius: 50%;
-  background: white;
+.forest svg path:hover {
+  fill: #c0c0c2;
 }
-
-
-
 
 .rain svg path:hover {
   fill: #c0c0c2;
@@ -165,8 +155,6 @@ input[type="range"]::-webkit-slider-thumb {
    width: clamp(2.4rem, 2rem + 12vw, 4.8rem);
 }
 
-
-
 .lightmode .active svg path:nth-child(2)
  {
    fill: #FFFFFF;
@@ -175,8 +163,9 @@ input[type="range"]::-webkit-slider-thumb {
 
 .sun, .moon{
   position: fixed;
-  top: 6.0rem;
-  right: 6.0rem;
+  align-self: flex-start;
+  justify-self: end;
+  margin: 6rem 6rem 0 0;
 }
 
 /* darkmode */ 
@@ -210,26 +199,48 @@ input[type="range"]::-webkit-slider-thumb {
    width: clamp(2.4rem, 2rem + 12vw, 4.8rem);
 }
 
-.darkmode input[type="range"] {
+.darkmode .active svg path:nth-child(1)  {
+    fill: #0A3442;
+    width: clamp(2.4rem, 2rem + 12vw, 4.8rem);
+  }
+
+.darkmode .active svg path:nth-child(2)
+ {
+   fill: #FFFFFF;
+   width: clamp(2.4rem, 2rem + 12vw, 4.8rem);
+}
+
+.darkmode input[type="range"],
+.darkmode input[type="range"]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
   width: 9.0rem;
   height: .6rem;
+  cursor: pointer;
   background: #C4C4CC;
   border-radius: .5rem;
-  margin-top: 3.2rem;
-}  
+}   
 
 .darkmode input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 1.6rem;
   width: 1.6rem;
+  margin-top: -0.6rem;
   border-radius: 50%;
   background: #C4C4CC;
 }
 
-.darkmode .active svg path:nth-child(1)  {
-    fill: #0A3442;
-    width: clamp(2.4rem, 2rem + 12vw, 4.8rem);
-  }
+.darkmode .activeInput,
+.darkmode .activeInput::-webkit-slider-runnable-track {
+  background: white !important; 
+ 
+}   
+
+.darkmode .activeInput::-webkit-slider-thumb {
+  background: white !important;
+}
+
+
+
 
 
 

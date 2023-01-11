@@ -21,10 +21,13 @@ import {
   buttonRain,
   buttonCoffeeshop,
   buttonFireplace,
+  volForest,
+  volRain,
+  volCoffeeShop,
+  volFirePlace,
   buttonSun,
   buttonMoon,
   mainPage,
-  inputVolume,
   minutesDisplay,
   secondsDisplay
 } from "./elements.js"
@@ -49,7 +52,10 @@ const card = Card ({
   buttonRain,
   buttonCoffeeshop,
   buttonFireplace,
-  inputVolume
+  volForest,
+  volRain,
+  volCoffeeShop,
+  volFirePlace
 }) 
 
 const sound = Sound ()
@@ -130,6 +136,24 @@ buttonMoon.addEventListener('click', function() {
   buttonSun.classList.remove('hide')
   buttonMoon.classList.add('hide')
 })
+
+volForest.addEventListener("input", function () {
+  card.updateVolumeForest(volForest.value)
+});
+
+volRain.addEventListener("input", function () {
+  card.updateVolumeRain(volRain.value);
+});
+
+volCoffeeShop.addEventListener("input", function () {
+  card.updateVolumeCoffeeshop(volCoffeeShop.value);
+  
+});
+
+volFirePlace.addEventListener("input", function () {
+  card.updateVolumeFireplace(volFirePlace.value);
+  
+});
 
 
 
