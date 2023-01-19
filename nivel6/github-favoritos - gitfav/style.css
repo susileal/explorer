@@ -1,0 +1,224 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  font-size: 62.5%;
+
+  --ff-primary:'Roboto Mono', monospace;
+  --text-color: rgba(255, 255, 255, 1);
+  --text-table: #E1E1E6;
+  
+ --bg-color: #000000;;
+ --bg-color-secondary:  #06181C;
+ --bg-button: rgba(6, 94, 124, 1);
+
+ --primary-color: rgba(9, 45, 56, 1);
+}
+
+body{
+  font-size: 1.6rem;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+body * {
+  font-family: var(--ff-primary);
+}
+
+#app{
+  padding: .2rem;
+  max-width: 112.0rem;
+  margin: 0 auto;
+}
+
+header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 11.5rem 0 8.7rem;
+
+}
+
+/* força o elemento desaparecer da tela sem ter problemas para o leitor de tela*/
+.sr-only{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden; /* não permite transbordamento da caixa */
+  clip: rect(0, 0, 0, 0); /* cria um retângulo */
+  white-space: nowrap; /* não quebra linha */
+  border-width: 0;
+
+}
+
+header h1{
+  font-weight: 700;
+  font-size: 3.3rem;
+  line-height: 2.5rem;
+  
+  margin-right: 29.3rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.search{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.search input{
+  font-weight: 400;
+  font-size: 1.6rem;
+  border-radius: 0.5rem;
+
+  width: 46.2rem;
+  height: 4.8rem;
+
+  background-color: var(--bg-color-secondary);
+  color: #7C7C8A;
+
+  padding: 1.6rem;
+
+  border: none;
+
+}
+
+.search button{
+  background-color: var(--bg-button);
+  color: var(--text-color);
+  border: none;
+
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+
+  border-radius: .5rem;
+  width: 17.0rem;
+  height: 4.8rem;
+
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 1.2rem 3.2rem;
+  gap: .8rem;
+}
+
+.search button:hover{
+  filter: brightness(1.1);
+}
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  
+  box-shadow: 0 1rem .2rem -1rem rgba(0, 0, 0, 0.3);
+}
+
+table * {
+  font-size: 2.0rem;
+  color: var(--text-table);
+}
+
+table th{
+  background-color: var(--primary-color);
+  text-align: left;
+  height: 6.4rem;
+  font-weight: 700;
+  
+  
+  padding: 1.6rem 4.0rem;
+
+
+}
+
+/* pseudo-class*/
+
+table th:first-child{
+  border-top-left-radius: 1.2rem;
+ 
+}
+
+table th:last-child{
+  border-top-right-radius: 1.2rem;
+}
+
+
+
+/* even - os impares */
+
+table tr:nth-child(even){
+  background-color: var(--primary-color);
+}
+
+/* odd - os impares */
+
+table tr:nth-child(odd){
+  background: rgba(6, 22, 27, 0.5);
+}
+
+table td{
+  padding: 2.4rem 2.4rem 2.4rem 4.0rem;
+  text-align: left;
+
+}
+
+
+td.user img{
+  width: 5.6rem;
+  height: 5.6rem;
+ 
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+td.user{
+  display: flex;
+  align-items: center;
+
+  gap: 1.6rem;
+}
+
+td.user a{
+  text-decoration: none;
+}
+
+td.user a p{
+  font-weight: 700;
+}
+
+td .remove{
+  background-color: transparent;
+  border: none;
+  color: #F75A68;
+
+  font-style: normal;
+
+  cursor: pointer;
+}
+
+tr{
+  border: 1px solid #4A808C;
+}
+
+
+
+
+
+
+
