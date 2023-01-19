@@ -23,13 +23,36 @@ export class FavoritesView extends Favorites{
   update() {
    this.removeAllTr()
 
+   // dados será um array contendo um objeto
+   // entries = entradas
+
+    const entries =[
+      {
+        login: 'maykbrito',
+        name: 'Mayk Brito',
+        public_repos: '76',
+        followers: '120000'
+      },
+
+      {
+        login: 'diego3g',
+        name: 'Diego Fernandes',
+        public_repos: '76',
+        followers: '120000'
+      }
+  
+    ]
+    
+    entries.forEach (user => {
+      console.log(user)
+    })
   
   }
 
   createRow() {
     const tr = document.createElement('tr')
 
-    const content = `
+    tr.innerHTML = `
       <td class="user">
         <img src="https://github.com/maykbrito.png" alt="Imagem de maykbrito">
         <a href="https://github.com/maykbrito" target="_blank">
@@ -46,10 +69,9 @@ export class FavoritesView extends Favorites{
       <td>
         <button class="remove"> Remover </button>
       </td>
-  `
-
-  // colocando o conteúdo dentro do html
-  tr.innerHTML = content
+      `
+    return tr
+ 
   }
 
   removeAllTr() {
