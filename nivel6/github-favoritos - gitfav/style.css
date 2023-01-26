@@ -10,8 +10,9 @@
   --ff-primary:'Roboto Mono', monospace;
   --text-color: rgba(255, 255, 255, 1);
   --text-table: #E1E1E6;
+  --text--secondary: #4E5455;
   
- --bg-color: #000000;;
+ --bg-color: #000000;
  --bg-color-secondary:  #06181C;
  --bg-button: rgba(6, 94, 124, 1);
 
@@ -143,8 +144,6 @@ table th{
   
   
   padding: 1.6rem 4.0rem;
-
-
 }
 
 /* pseudo-class*/
@@ -214,7 +213,35 @@ td .remove{
 
 tr{
   border: 1px solid #4A808C;
+ 
 }
+
+.hide {
+  display: none;
+}
+
+.notFavorite{
+  font-size: 4.0rem;
+  line-height: 2.0rem;
+
+  color: var(--text--secondary);
+
+  display: flex;
+  align-items: center;
+  text-align: center;
+  
+  
+  gap: 6.0rem;
+
+  padding: 21.0rem 0 28.9rem 16rem;
+}
+
+
+
+
+
+
+
 
 
 
