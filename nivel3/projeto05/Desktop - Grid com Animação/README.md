@@ -1,9 +1,9 @@
-Criar página utilizando conceito de responsividade, transições e transformações.
+Create a page using the concept of responsiveness, transitions and transformations.
 
-Assuntos abordados:
+Topics covered:
 
 - Grid;
-- Animações e transições, como visto em aula;
+- Animations and transitions;
 - Media queries.
 
 
