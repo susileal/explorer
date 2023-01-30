@@ -109,12 +109,12 @@ body {
   }
 
   main {
-    grid-template-areas: "PALETAS1 SHAKES PALETAS2" "PICOLE1 MASSAS PICOLE2";
+    grid-template-areas: "PALETTE1 SHAKES PALETTE2" "POPSICLE1 MASSAS POPSICLE2";
     margin-left: 6.0rem ;
   }
 
   main .card:nth-child(1){
-    grid-area: PALETAS1;
+    grid-area: PALETTE1;
     grid-row: 1/2;
     margin-top:  6.4rem;
   }
@@ -129,17 +129,17 @@ body {
     grid-row: auto;
   }
   main .card:nth-child(4){
-    grid-area: PICOLE1;
+    grid-area: POPSICLE1;
     grid-row: 2/4;
    
   }
   main .card:nth-child(5){
-    grid-area: PALETAS2;
+    grid-area: PALETTE2;
     grid-row: 1/2;
     margin-top: 6.4rem;
   }
   main .card:nth-child(6){
-    grid-area: PICOLE2; 
+    grid-area: POPSICLE2; 
     grid-row: 2/4;
   }
 }
