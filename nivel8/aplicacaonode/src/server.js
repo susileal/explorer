@@ -1,20 +1,15 @@
 const express = require("express");
 
+// por padrão quando não é dito o nome do arquivo que será carregado ele carrega o arquivo com o nome index.js
+
+const routes = require("./routes");
+
+
 const app = express();
 app.use(express.json());
 
-// o POST não pode ser visualizado pelo navegar, pois usa como padrão o get.
-// será usado o insomia para rodar os post - localhost:3333/users (enviando o response)
-// utilizando o método POST envia a requisição pelo corpo da requisição
-// o POST é utilizado, principalmente para cadastrar alguma coisa
-// body, como será feito o envio pelo corpo da requisição? JSON
-app.post("/users", (request, response) => {
- 
-  const { name, email, password } = request.body;
-
-  response.json({ name, email, password });
-});
-
+// acessar as rotas, fala para a aplicação usar as roras que estão no routes
+app.use(routes);
 
 const PORT = 3333;
 app.listen(PORT, () => console.log(`Server is running on Port ${PORT}`));
