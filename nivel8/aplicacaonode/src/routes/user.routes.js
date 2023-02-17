@@ -1,20 +1,20 @@
-// importando o app
 
 const { Router } = require("express");
 
-// inicializando o Router
+const UsersController = require("../controllers/UsersController")
 
 const usersRoutes = Router();
 
-// não irá usar mais a rota /users, pois está sendo importado do index
 
-usersRoutes.post("/", (request, response) => {
- 
-  const { name, email, password } = request.body;
+// como UsersController é uma classe será necessário instanciar 
+// new - é para dizer que está fazendo uma nova instância 
 
-  response.json({ name, email, password });
-});
+const usersController = new UsersController();
 
-// é necessário expor as rotas para que o server.js saiba onde está, já que foi retirada do arquivo
-// exportando para quem quiser utilizar o arquivo
+
+// a rota sá vai receber a request, response e repassar para o controller
+// (request, response) => {} no lugar de passar tudo isso será passado usersController.create
+usersRoutes.post("/", usersController.create);
+
+
 module.exports = usersRoutes;
