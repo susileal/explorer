@@ -1,29 +1,37 @@
-// importanto o express
 
+const { request } = require("express");
 const express = require("express");
-
-
-// inicializando o express
-// app - é a aplicação utilizando o express
-// express é quem ajuda a gerenciar as requisições http(get, post, put, DELETE, patch)
 
 const app = express();
 
-// get - leitura
-// dentro do parenteses será o endereço da rota / (raiz da api)
-// request - requisição feita
-// response - o recurso que pose ser utilizado para fazer a resposta
-app.get("/message", (request, response) => {
-  response.send("Hello, World!");
-})
+// através do request que obtém informações que estão sendo enviadas para o api
+//  params - os parâmetros são obrigatórios
+// params - passa o endereço direto na rota
+// params - são utilizados para dados simples
+// para passar o parâmetro é necessário colocar /:
+// como recuperar a informação do parâmetro? request.params.id
+// pode ser usado vários parâmetros: /message/:id/:user
+// desestruturando ( const { id, user } = request.params) para não repetir: ${request.params.id}, ${request.params.user} 
+app.get("/message/:id/:user", (request, response) => {
 
+  const { id, user } = request.params
 
-// qual é a porta/endereço que a app vai atender as requisições
+  response.send(`
+  Mensagem ID: ${id}.
+  Nome do usuário: ${user}.
+  `);
+});
+
+// o fato dos  parâmetros não estarem na rota não impede que seja acessada a rota.
+// query - os parâmetros NÃO são obrigatórios
+// http://localhost:3333/users?page=5&limit=6
+app.get("/users", (request, response) => {
+  const { page, limit } = request.query;
+
+  response.send(`Página: ${page}. Mostrar: ${limit}`);
+});
+
 
 const PORT = 3333;
-
-
-// listen (ouvir) - fica observando nessa porta o que deve ser feito, que será dito na função
-// Server is running on Port - O servidor está sendo executado na porta
 
 app.listen(PORT, () => console.log(`Server is running on Port ${PORT}`));
