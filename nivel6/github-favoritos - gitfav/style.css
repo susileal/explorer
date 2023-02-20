@@ -157,7 +157,13 @@ table th:last-child{
   border-top-right-radius: 1.2rem;
 }
 
+table tr:last-child td:last-child{
+  border-bottom-right-radius: 1.2rem;
+}
 
+table tr:last-child td:first-child{
+  border-bottom-left-radius: 1.2rem;
+}
 
 /* even - os impares */
 
@@ -168,7 +174,7 @@ table tr:nth-child(even){
 /* odd - os impares */
 
 table tr:nth-child(odd){
-  background: rgba(6, 22, 27, 0.5);
+ background: rgba(6, 22, 27, 0.5);
 }
 
 table td{
@@ -211,16 +217,15 @@ td .remove{
   cursor: pointer;
 }
 
-tr{
+tr {
   border: 1px solid #4A808C;
- 
 }
 
 .hide {
   display: none;
 }
 
-.notFavorite{
+.notFavorite p{
   font-size: 4.0rem;
   line-height: 2.0rem;
 

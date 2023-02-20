@@ -13,6 +13,8 @@ export class Favorites {
     // o parse vai modificar o JSON para um objeto que está dentro dele
 
     this.entries = JSON.parse(localStorage.getItem('@github-favorites:')) || []
+
+    this.updateNotFavorite()
   }
 
   // JSON.stringify() - trsnaforma um objeto do JS para um tipo de objeto em texto, string
@@ -80,34 +82,34 @@ export class FavoritesView extends Favorites {
 
     this.tbody = this.root.querySelector('table tbody')
 
-    this.update() // está dando erro, vou seguir a aula
+    this.update() 
     this.onadd()
   }
-
+  
   onadd() {
     const addButton = this.root.querySelector('.search button')
     addButton.onclick = () => {
       const {value} = this.root.querySelector('.search input')
-
+      
       this.add(value)
     }
   }
-
+  
   // construindo o html pelo js
-
+  
   update() {
-
-   this.removeAllTr()
-
-   // dados será um array contendo um objeto
-   // entries = entradas
+    
+    this.removeAllTr()
+    
+    // dados será um array contendo um objeto
+    // entries = entradas
     
     this.entries.forEach( user => {
-
+      
       // cada vez que entrar vai pegar uma row e transformar em this.creatRow()
-
+      
       const row = this.createRow()
-
+      
       row.querySelector('.user img').src = `https://github.com/${user.login}.png`
       row.querySelector('.user img').alt = `Imagem de ${user.name}`
       row.querySelector('.user a').href = `https://github.com/${user.login}`
@@ -115,12 +117,12 @@ export class FavoritesView extends Favorites {
       row.querySelector('.user span').textContent = user.login
       row.querySelector('.repositories').textContent = user.public_repos
       row.querySelector('.followers').textContent = user.followers
-
-     
-
+      
+      
+      
       //onclinck é apentas para um evento
       // confirm - é um boleano V ou F
-
+      
       row.querySelector('.remove').onclick = () => {
         const isOk = confirm('Tem certeza que deseja deletar essa linha?')
         
@@ -128,13 +130,27 @@ export class FavoritesView extends Favorites {
           this.delete(user)
         }
       }
-
-
+      
+      
       // append - elemento html criado com a DOM
-
+      
       this.tbody.append(row)
     })
+    
+    
+    this.updateNotFavorite()
+    
+  }
   
+  updateNotFavorite(){
+
+    const notFavorite = this.root.querySelector('.notFavorite')
+    
+    if(this.entries.length > 0){
+      notFavorite.classList.add('hide')
+    }else{
+      notFavorite.classList.remove('hide')
+    }
   }
 
   createRow() {
