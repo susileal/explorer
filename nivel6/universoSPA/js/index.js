@@ -1,4 +1,31 @@
 import {Router} from './router.js'
+import { Backgrounds } from "./events.js";
+import { linkHome, linkUniverse, linkExploration } from "./elements.js";
+
+const backgrounds = Backgrounds({
+  linkHome,
+  linkUniverse,
+  linkExploration,
+});
+
+if (linkHome) {
+  linkHome.addEventListener("click", function () {
+    backgrounds.backgroundHome();
+  });
+}
+
+if (linkUniverse) {
+  linkUniverse.addEventListener("click", function () {
+    backgrounds.backgroundUniverse();
+  });
+}
+
+if (linkExploration) {
+  linkExploration.addEventListener("click", function () {
+    backgrounds.backgroundExploration();
+  });
+}
+
 
     const router = new Router()
     router.add("/", "/pages/home.html")
@@ -10,46 +37,8 @@ import {Router} from './router.js'
     router.handle()
 
     window.onpopstate = () => router.handle()
-    window.route = () => router.route()
+    window.route = (href) => router.route(href)
 
 
-    /* Pilares da orientação a objetos
-    Herança:
 
-    Toda função dentro de uma classe é chamada de metodo
-    Todo e qualquer variável dentro de uma classe é chamada de atributo
-    Ex:
-
-    class Passaro {
-      voar() {
-        alert('voar')
-      }
-    }
-    
-    class Pato extends Passaro{
-      constructor(){
-        super()
-      }
-    }
-
-    class Galinha extends Passaro {
-       constructor(){
-        super()
-      }
-
-      // Polimofismo
-      voar() {
-        alert('nao voa tao bem')
-      }
-    }
-
-    const pato = new Pato()
-    pato.voar()
-
-    const galinha = new Galinha()
-    pato.galinha()
-    */
-
-
- 
 

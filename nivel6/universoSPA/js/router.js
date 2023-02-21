@@ -6,12 +6,12 @@ export class Router {
     // this.routes[routeName] = page - é um objeto com nome e valor
     this.routes[routeName] = page
   }
-  route (event) {
+  route (href, event) {
     event = event || window.event 
     event.preventDefault()
     
     
-    window.history.pushState({}, "", event.target.href)
+    window.history.pushState({}, "", href)
 
     this.handle()
   }
