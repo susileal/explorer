@@ -1,8 +1,7 @@
-// é no server que será feito o tratamento de exceções
-
 require("express-async-errors");
 
-// importando o AppError
+// importando database
+const database = require("./database/sqlite")
 
 const AppError = require("./utils/AppError")
 
@@ -15,14 +14,17 @@ const routes = require("./routes");
 const app = express();
 app.use(express.json());
 
-// acessar as rotas, fala para a aplicação usar as rotas que estão no routes
+
 app.use(routes);
 
-// capturando o error, requisição, a resposta e o next
+// executando o banco de dados, ao executar o database(), cria um arquivo do banco de dados.
+// Será utilizado um SGBD-  sistema gerenciador de banco de dados para visualizar o banco
+database();
+
+
 
 app.use((error, request, response, next) => {
 
-  // primeiro saber se o error é gerado pelo lado do cliente
 
   if(error instanceof AppError){
     return response.status(error.statusCode).json({
