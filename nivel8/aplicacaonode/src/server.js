@@ -1,7 +1,7 @@
 require("express-async-errors");
 
-// importando database
-const database = require("./database/sqlite")
+// chamar as migrations
+const migrationsRun = require("./database/sqlite/migrations")
 
 const AppError = require("./utils/AppError")
 
@@ -10,17 +10,12 @@ const express = require("express");
 
 const routes = require("./routes");
 
+migrationsRun();
 
 const app = express();
 app.use(express.json());
 
-
 app.use(routes);
-
-// executando o banco de dados, ao executar o database(), cria um arquivo do banco de dados.
-// Será utilizado um SGBD-  sistema gerenciador de banco de dados para visualizar o banco
-database();
-
 
 
 app.use((error, request, response, next) => {

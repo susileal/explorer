@@ -1,35 +1,36 @@
-// importando o AppError
-
 const AppError = require("../utils/AppError");
 
-// srá usada a class, porque dentro dela permite ter várias funções
-// um controller poderá no máximo ter 5 métodos/função, se for mais será melhor criar outro controller
-/* a classe terá:
-  * index - GET para listar vários registros;
-  * show - GET para exibir um registro específico;
-  * create - POST para poder criar um registro
-  * update - PUT para atualizar um registro.
-  * delete - DELETE para remover um registro
-
-*/
-
-// o controller tem a responsabilidade de lidar com processamento das informações
+const sqliteConnection = require("../database/sqlite");
 
 class UsersController {
-
-  // é uma função, não precisa colocar a palavra reservada function na frente, pq a classe já sabe que é uma função
-  create(request, response){
+  // criar funcionalidade para cadastrar novos usuários
+  // para o await ficar disponível é necessário usar o async antes.
+ async create(request, response){
     const { name, email, password } = request.body;
 
-    // usar o AppError para exibir algum tipo de error
+    // fazendo conexão com o banco de dados
+    const database = await sqliteConnection();
+  // fazendo o comando do SELECT para verificar se o usuário já existe
+  // get busca por informações
+  // where - onde o email seja um eamil qualquer
+  // para inserir um valor de uma variável (?)
+  // substitui a ? por email.
+  const checkUserExists = await database.get("SELECT * FROM users WHERE email = (?)", [email])
+  // se o usuário existe, terá um error
+  if(checkUserExists){
+    throw new AppError("Este e-mail já está em uso");
+  }
 
-    if(!name){
-      throw new AppError("Nome é obrigatório!");
-    }
+  // cadastrando usuário
+  // run - executar uma inserção
+  // INSERT INTO users - insira na tabela de usuários
 
-    // devolvendo o status colde - status(201)
-    response.status(201).json({ name, email, password });
+  await database.run(
+    "INSERT INTO users (name, email, password) VALUES (?, ?, ?)", 
+    [name, email, password]
+    );
+
+  return response.status(201).json();
   }
 }
-
 module.exports = UsersController;

@@ -9,7 +9,7 @@ const sqlite = require("sqlite");
 // utilização de uma biblioteca (path), para resolver os endereços de acordo com o ambiente 
 
 const path = require("path");
-const { dirname } = require("path");
+
 
 async function sqliteConnection(){
   // abrir uma conexão - sqlite.open()
