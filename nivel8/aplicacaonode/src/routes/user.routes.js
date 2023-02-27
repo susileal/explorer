@@ -11,5 +11,8 @@ const usersController = new UsersController();
 
 usersRoutes.post("/", usersController.create);
 
+// passar o id como parâmetro
+usersRoutes.put("/:id", usersController.update);
+
 
 module.exports = usersRoutes;
