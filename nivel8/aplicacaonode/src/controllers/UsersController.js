@@ -1,6 +1,7 @@
 // hash - função que gera a criptografia
+// compare - importando o compare, pois a senha está criptografada, para poder usar na hora de fazer o checkOldPassword
 
-const { hash } = require("bcryptjs");
+const { hash, compare } = require("bcryptjs");
 
 const AppError = require("../utils/AppError");
 
@@ -35,48 +36,61 @@ class UsersController {
 
   // rota para atualizar o usuário
   async update(request, response){
-    const { name, email } = request.body;
+    const { name, email, password, old_password } = request.body;
     const { id } = request.params;
 
-    // conexão com o banco de dados
     const database = await sqliteConnection();
-
-    // procurando usuário
 
     const user = await database.get("SELECT * FROM users WHERE id = (?)", [id])
 
-    // se o usuário não existir
     if(!user){
       throw new AppError("Usuário não encontrado");
     }
 
-    // verificar se a pessoa está tentando colocar um email que já existe
-
     const userWithUpdateEmail = await database.get("SELECT * FROM users WHERE email = (?)", [email])
 
-    // tentando mudar o email para um que já existe
     if(userWithUpdateEmail && userWithUpdateEmail.id != user.id){
       throw new AppError("Este email já está em uso");
     }
 
-    // se não está tentando fazer os dois ifs então:
-    // user.name = name pega o user.name e muda para o nome que foi passado, o mesmo com o email
-    user.name = name;
-    user.email = email;
-    
-    // executar o update
-    // atualize na tabela de usuário e defina(SET)
-    // nex date - gera a data atual do próprio servidor
+    /* se existir o conteúdo dentro de name, 
+    então este qeu vai ser utilizado, se não existir o que vai ser utilizado é o user.name */
 
+    user.name = name ?? user.name;
+    user.email = email ?? user.email;
+
+    // verificando se foi digitado a senha antiga
+    if(password && !old_password){
+      throw new AppError("Você precisa digitar a senha antiga para definir a nova senha");
+    }
+    
+    //verificar se a senha antiga é igual a senha que está cadastrada no banco
+
+    if(password && old_password){
+      const checkOldPassword = await compare(old_password, user.password);
+
+      // se for falso significa dizer que a senha não é igual
+
+      if(!checkOldPassword){
+        throw new AppError("A senha antiga não confere");
+      }
+
+      // se tudo confere será atualizado
+
+      user.password = await hash(password, 8);
+    }
+  
+    // quem vai atualizar a data é o banco de dados - DATETIME('now') - função do banco de dados
     await database.run(`
       UPDATE users SET
       name = ?,
       email = ?,
-      updated_at = ?
+      password = ?,
+      updated_at = DATETIME('now') 
       WHERE id = ?`,
 
       // passando o array
-      [user.name, user.email, new Date(), id]
+      [user.name, user.email, user.password, id]
     );
 
     // retornar o status de sucesso
