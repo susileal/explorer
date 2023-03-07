@@ -1,5 +1,7 @@
 const knex = require("../database/knex");
 
+const AppError = require("../utils/AppError");
+
 class NotesController{
   async create(request, response){
     const { title, description, rating, tags} = request.body;
@@ -9,6 +11,10 @@ class NotesController{
 
     // inserir a nota recuperando o código da nota que foi inserida
     // note_id - armazena o id da nota que foi cadastrada
+
+    if(rating < 1 || rating > 5){
+      throw new AppError("Você precisa digitar o número entre 1 e 5");
+    }
 
     const movie_notes_id = await knex("movie_notes").insert({
       title,
