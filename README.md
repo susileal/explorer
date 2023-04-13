@@ -1,6 +1,6 @@
-### Curso Explore - Rocketseat
+### Curso Explorer - Rocketseat
 
-O Explore é um curso direcionado para pessoas que querem aprender a programação web. Desdes os fundamentos da programação, repositórios, backend e frontend.
+O Explorer é um curso direcionado para pessoas que querem aprender a programação web. Desdes os fundamentos da programação, repositórios, backend e frontend.
 
 This stage I learning:
 
